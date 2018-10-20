@@ -11,7 +11,10 @@ if __name__ == '__main__':
 
     last_line = "a"
     while len(last_line) != 0:
-        last_line = input()
+        try:
+            last_line = input()
+        except EOFError:
+            break
         lines.append(last_line)
 
     input_data = dict(l.split("=") for l in lines if len(l) > 0)  # type: Dict[str, str]
